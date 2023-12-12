@@ -1,12 +1,18 @@
 {%extends 'base.html' %}
 {%block content%}
 <h1>Customer records:</h1>
-{{customer_record.first_name}}{{customer_record.last_name}} <br>
-{{customer_record.email}} <br>
-{{customer_record.phone}} <br>
-{{customer_record.address}} <br>
-{{customer_record.city}} <br>
-{{customer_record.state}} <br>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{customer_record.first_name}}{{customer_record.last_name}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{customer_record.email}}</h6>
+      <p class="card-text">{{customer_record.phone}} <br>
+        {{customer_record.address}} <br>
+        {{customer_record.city}} <br>
+        {{customer_record.state}} <br>
+    </p>
+      <a href="{%url 'home' %}" class="card-link">Go back</a>
+    </div>
+  </div>
 
 
 {%endblock%}
