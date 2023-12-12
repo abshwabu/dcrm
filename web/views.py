@@ -50,8 +50,8 @@ def register_user(request):
 
 def customer_record(request,pk):
     if request.user.is_authenticated:
-        customer_records= Record.objects.get(id=pk)
-        return render(request, 'record.html',{'customer_records':customer_records})
+        customer_record= Record.objects.get(id=pk)
+        return render(request, 'record.html',{'customer_record':customer_record})
     else:
         messages.error(request,'Loin first')
         return render(request, 'home.html',{})
