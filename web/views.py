@@ -76,3 +76,13 @@ def add_record(request):
                 messages.success(request, 'Added record')
                 return redirect('home')
         return render(request,'add_record.html',{'form': form})
+    
+def update_record(request,pk):
+    if request.user.is_authenticated:
+        customer_record = Record.objects.get(id=pk)
+        form = AddRecordForm(request.POST or None,instance=customer_record)
+        if form.is_valid():
+                update_record = form.save()
+                messages.success(request, 'updateed record')
+                return redirect('home')
+        return render(request,'update_record.html',{'form': form})
